@@ -6,6 +6,10 @@ import urllib.parse
 SHEET_ID = "1DIlSqvPTcDX87VH5rIcynmBSbMqPBxNsAhSoe-65EbY"
 SHEET_NAME = "List Lagu Raw"
 
+API_KEY = os.environ.get("API_KEY")
+if not API_KEY:
+    raise ValueError("error: API_KEY environment variable is missing");
+
 encoded_sheet = urllib.parse.quote(SHEET_NAME)
 sheet_url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:json&tq&sheet={encoded_sheet}"
 req = urllib.request.Request(sheet_url, headers={"User-Agent": "Mozilla/5.0"})
