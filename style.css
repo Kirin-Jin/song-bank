@@ -1,0 +1,99 @@
+﻿body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f8f9fa;
+}
+
+pre {
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+h1 {
+    color: #0f172a;
+    margin-bottom: 30px;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #f0f4f8;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.song-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.song-card h2 {
+    margin: 0;
+    color: #0f172a;
+}
+
+#song-results {
+    height: calc(100vh - 250px);
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+    #song-results {
+        height: calc(100vh - 280px);
+    }
+}
+
+@media (min-width: 1024px) {
+    #song-results {
+        max-height: 550vh;
+    }
+}
+
+.back-btn {
+    display: inline-block;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lyrics-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 600px;
+    width: 100%;
+}
+
+.back-section {
+    width: 100%;
+    background-color: #f0f4f8;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.title-section {
+
+}
+
+

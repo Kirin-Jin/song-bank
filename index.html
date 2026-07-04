@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Bank Lagu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <h1> Bank Lagu </h1>
+        </div>
+
+        <div class="main-content">
+            <div class="search-section">
+                <h2> PENCARIAN LAGU </h2>
+                <input type="text" id="sn" placeholder="Ketik judul lagu..." style="width: 100%; padding: 12px; font-size: 16px;">
+            </div>
+
+            <div class="results-header">
+                <p><strong>MENUNJUKKAN SEMUA LAGU</strong> (<span id="total-songs">0</span> Lagu)</p> 
+            </div>
+
+            <div id="song-results"> </div>
+        </div>
+    </div>
+    <script src="handleDatabase.js"></script>
+</body>
+</html>

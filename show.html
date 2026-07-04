@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Bank Lagu </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="back-section">
+        <div class="back-btn">
+            <a href="index.html" class="back-btn"> ← Kembali </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 id="song-title"> JUDUL </h1>
+        <div class="lyrics-section">
+            <pre id="song-sheet"> LIRIK </pre>
+        </div>
+    </div>
+
+    <script>
+        async function loadsheet() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const songTitleQuery = urlParams.get('title');
+
+            if (!songTitleQuery) {
+                document.getElementById('song-title').textContent = "Lagu tidak ditemukan";
+                return;
+            }
+
+            try {
+                const response = await fetch('database.json');
+                const database = await response.json();
+
+                const matchedSong = database.find(song => song.title.toLowerCase() === songTitleQuery.toLowerCase());
+
+                if (matchedSong) {
+                    document.getElementById('song-title').textContent = matchedSong.title;
+                    document.getElementById('song-sheet').textContent = matchedSong.sheet;
+                } else {
+                    document.getElementById('song-title').textContent = "Lirik tidak ditemukan";
+                    document.getElementById('song-sheet').textContent = "";
+                }
+            } catch (err) {
+                console.error("error : retrieving matching database song -> ", err);
+            }
+        }
+
+        loadsheet();
+    </script>
+</body>
+</html>
