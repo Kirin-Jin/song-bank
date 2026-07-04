@@ -34,4 +34,15 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add database.json
-        git diff-index --quiet HEAD || (git commit -m "Automated database sync" && git push)
+        
+        # Check if there are actually changes to commit
+        if ! git diff-index --quiet HEAD; then
+          git commit -m "Automated database sync"
+          
+          #Pull remote changes via rebase right before pushing
+          git pull --rebase origin main
+          
+          git push origin main
+        else
+          echo "No changes detected in database.json. Skipping push."
+        fi
