@@ -25,7 +25,7 @@ jobs:
     - name: Run database update script
       env:
         # Pass your Google API Key securely from GitHub settings
-        API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        API_KEY: ${{ secrets.API_KEY }}
       run: python update_database.py
 
     # 4. Save and commit the changes back to your GitHub repo
