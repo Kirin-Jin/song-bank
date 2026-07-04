@@ -5,7 +5,6 @@ import urllib.parse
 
 SHEET_ID = "1DIlSqvPTcDX87VH5rIcynmBSbMqPBxNsAhSoe-65EbY"
 SHEET_NAME = "List Lagu Raw"
-API_KEY = "AIzaSyCd0o1M6jJjd4LZwYJ_Rl9LhEsJBFrrKtY"
 
 encoded_sheet = urllib.parse.quote(SHEET_NAME)
 sheet_url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:json&tq&sheet={encoded_sheet}"
