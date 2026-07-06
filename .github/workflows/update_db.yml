@@ -31,13 +31,24 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add database.json
         
+        # 1. Stash your freshly generated database file safely in memory
+        git stash -- database.json
+        
+        # 2. Fetch the absolute latest state from the remote repository
+        git fetch origin main
+        
+        # 3. Force the runner's workspace history to match GitHub perfectly
+        git reset --hard origin/main
+        
+        # 4. Pop your fresh database file back into the workspace
+        git stash pop || true
+        
+        # 5. Add, commit, and push normally
+        git add database.json
         if ! git diff-index --quiet HEAD; then
           git commit -m "Automated database sync"
-          git fetch origin main
-          git pull --rebase origin main
           git push origin main
         else
-          echo "No changes detected. Skipping sync."
+          echo "No changes detected in database.json. Skipping push."
         fi
