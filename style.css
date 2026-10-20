@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     font-family: sans-serif;
     background-color: #f8f9fa;
@@ -30,6 +30,25 @@ h1 {
     background-color: #f0f4f8;
     padding: 30px 20px;
     box-sizing: border-box;
+}
+
+.option {
+    width: 215px;
+    background-color: #dce6ef;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.alphabet-container {
+    width: 30px;
+    height: 30px;
+    background-color: #baccde;
+    margin: 0px 5px 5px 5px;
+    padding: 2px 5px 2px 5px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 .main-content {
