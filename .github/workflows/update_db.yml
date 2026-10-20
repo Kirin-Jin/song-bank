@@ -24,7 +24,7 @@ jobs:
 
     - name: Run database update script
       env:
-        API_KEY: ${{ secrets.API_KEY }}
+        API_KEY: ${{ vars.API_KEY }}
       run: python update_database.py
 
     - name: Commit and push changes
